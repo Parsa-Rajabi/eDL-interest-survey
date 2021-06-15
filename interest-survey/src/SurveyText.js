@@ -41,43 +41,43 @@ export const allQuestions = [
     },
     {
         Question: "Develop a spreadsheet using a computer application",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Proofread records or forms",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Work with a calculator",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "MISSING",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Maintain shipping and receiving records",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Calculate the wages of employees",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Capture inventory using a scanner",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Record rent payments",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Keep inventory records",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Stamp, sort, and distribute mail for an organization",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Buy and sell stocks and bonds",
@@ -287,43 +287,43 @@ export const artisticQuestions = [
 export const ConventionalQuestions = [
     {
         Question: "Develop a spreadsheet using a computer application",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Proofread records or forms",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Work with a calculator",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Install software across computers on a large network",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Maintain shipping and receiving records",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Calculate the wages of employees",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Capture inventory using a scanner",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Record rent payments",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Keep inventory records",
-        Category: "Conventional "
+        Category: "Conventional"
     },
     {
         Question: "Stamp, sort, and distribute mail for an organization",
-        Category: "Conventional "
+        Category: "Conventional"
     }
 ]
 
@@ -816,11 +816,11 @@ export const page5 = [
     ConventionalQuestions[9],
 ]
 
-const surveyChoices = [{value: 1, text: "Strongly Disagree"},
-    {value: 2, text: "Disagree"},
+const surveyChoices = [{value: 1, text: "Strongly Dislike"},
+    {value: 2, text: "Dislike"},
     {value: 3, text: "Neutral"},
-    {value: 4, text: "Agree"},
-    {value: 5, text: "Strongly Agree"}]
+    {value: 4, text: "Like"},
+    {value: 5, text: "Strongly Like"}]
 
 function mapArray(array) {
     return array.map(
@@ -835,60 +835,86 @@ function mapArray(array) {
 
 const surveyConst = {
     type: "matrix",
-    name: "Quality",
-    title: "Please indicate if you agree or disagree with the following statements",
+    name: "Page",
+    title: "Please select how you feel about each statement",
+    startButtonText: "Get Started",
+    backButtonText: "Back"
 }
 
 export const json = {
+    showProgressBar: "bottom",
+    showQuestionNumbers: "off",
+    firstPageIsStarted: true,
+    startSurveyText: surveyConst.startButtonText,
+
     pages: [
         {
             questions: [
                 {
-                    type: surveyConst.type,
-                    name: surveyConst.name,
-                    title: surveyConst.title,
-                    columns: surveyChoices,
-                    rows: mapArray(page1)
+                    type: "html",
+                    html: "<br/>Please click on <b>" + surveyConst.startButtonText + " </b> button when you are ready."
                 }
             ]
         },
         {
-            questions: [
+            elements: [
                 {
                     type: surveyConst.type,
-                    name: surveyConst.name,
                     title: surveyConst.title,
+                    name: surveyConst.name + "1",
+                    valueName: surveyConst.name + "1",
+                    isAllRowRequired: true,
+                    columns: surveyChoices,
+                    rows: mapArray(page1),
+
+                }
+            ]
+        },
+        {
+            elements: [
+                {
+                    type: surveyConst.type,
+                    title: surveyConst.title,
+                    name: surveyConst.name + "2",
+                    valueName: surveyConst.name + "2",
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page2)
                 }
             ]
         }, {
-            questions: [
+            elements: [
                 {
                     type: surveyConst.type,
-                    name: surveyConst.name,
                     title: surveyConst.title,
+                    name: surveyConst.name + "3",
+                    valueName: surveyConst.name + "3",
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page3)
                 }
             ]
         },
         {
-            questions: [
+            elements: [
                 {
                     type: surveyConst.type,
-                    name: surveyConst.name,
                     title: surveyConst.title,
+                    name: surveyConst.name + "4",
+                    valueName: surveyConst.name + "4",
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page4)
                 }
             ]
         }, {
-            questions: [
+            elements: [
                 {
                     type: surveyConst.type,
-                    name: surveyConst.name,
                     title: surveyConst.title,
+                    name: surveyConst.name + "5",
+                    valueName: surveyConst.name + "5",
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page5)
                 }
