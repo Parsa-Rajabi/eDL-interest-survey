@@ -9,7 +9,11 @@ StylesManager.applyTheme("modern");
 function SurveyComponent(){
     const survey = new Model(json);
 
-    return <Survey model={survey}/>
+    function submit(survey){
+        console.log(survey.data)
+    }
+
+    return <Survey model={survey} onComplete={submit}/>
 }
 
 export default SurveyComponent;
