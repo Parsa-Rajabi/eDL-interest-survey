@@ -879,7 +879,7 @@ export const json = {
                     title: surveyConst.title,
                     name: surveyConst.name + "1",
                     valueName: surveyConst.name + "1",
-                    // isAllRowRequired: true,
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page1),
 
@@ -894,7 +894,7 @@ export const json = {
                     title: surveyConst.title,
                     name: surveyConst.name + "2",
                     valueName: surveyConst.name + "2",
-                    // isAllRowRequired: true,
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page2)
                 }
@@ -907,7 +907,7 @@ export const json = {
                     title: surveyConst.title,
                     name: surveyConst.name + "3",
                     valueName: surveyConst.name + "3",
-                    // isAllRowRequired: true,
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page3)
                 }
@@ -921,7 +921,7 @@ export const json = {
                     title: surveyConst.title,
                     name: surveyConst.name + "4",
                     valueName: surveyConst.name + "4",
-                    // isAllRowRequired: true,
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page4)
                 }
@@ -934,7 +934,7 @@ export const json = {
                     title: surveyConst.title,
                     name: surveyConst.name + "5",
                     valueName: surveyConst.name + "5",
-                    // isAllRowRequired: true,
+                    isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page5)
                 }
