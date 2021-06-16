@@ -1,4 +1,23 @@
-export const allQuestions = [
+/*
+*
+* @Author: Parsa Rajabi, ParsaRajabiPR [at] gmail.com
+* @Date: June 2021
+* @Description: Text for Survey
+*
+* */
+
+// question categories
+export const questionCategories = {
+    Artistic: "Artistic",
+    Conventional: "Conventional",
+    Enterprising: "Enterprising",
+    Investigative: "Investigative",
+    Realistic: "Realistic",
+    Social: "Social",
+}
+
+// questions based on their category
+const allQuestions = [
     {
         Question: "Write books",
         Category: "Artistic"
@@ -240,8 +259,7 @@ export const allQuestions = [
         Category: "Social"
     }
 ]
-
-export const artisticQuestions = [
+const artisticQuestions = [
     {
         Question: "Write books",
         Category: "Artistic"
@@ -283,8 +301,7 @@ export const artisticQuestions = [
         Category: "Artistic"
     }
 ]
-
-export const ConventionalQuestions = [
+const ConventionalQuestions = [
     {
         Question: "Develop a spreadsheet using a computer application",
         Category: "Conventional"
@@ -326,8 +343,7 @@ export const ConventionalQuestions = [
         Category: "Conventional"
     }
 ]
-
-export const EnterprisingQuestions = [
+const EnterprisingQuestions = [
     {
         Question: "Buy and sell stocks and bonds",
         Category: "Enterprising"
@@ -489,8 +505,7 @@ export const EnterprisingQuestions = [
         Category: "Social"
     }
 ]
-
-export const InvestigativeQuestions = [
+const InvestigativeQuestions = [
     {
         Question: "Develop a new medicine",
         Category: "Investigative"
@@ -612,8 +627,7 @@ export const InvestigativeQuestions = [
         Category: "Social"
     }
 ]
-
-export const RealisticQuestions = [
+const RealisticQuestions = [
 
     {
         Question: "Build kitchen cabinets",
@@ -696,8 +710,7 @@ export const RealisticQuestions = [
         Category: "Social"
     }
 ]
-
-export const SocialQuestions = [
+const SocialQuestions = [
 
     {
         Question: "Teach someone how to exercise",
@@ -741,7 +754,8 @@ export const SocialQuestions = [
     }
 ]
 
-export const page1 = [
+// questions based on page
+const page1 = [
     RealisticQuestions[0],
     RealisticQuestions[1],
     InvestigativeQuestions[0],
@@ -755,8 +769,7 @@ export const page1 = [
     ConventionalQuestions[0],
     ConventionalQuestions[1],
 ]
-
-export const page2 = [
+const page2 = [
     RealisticQuestions[2],
     RealisticQuestions[3],
     InvestigativeQuestions[2],
@@ -770,8 +783,7 @@ export const page2 = [
     ConventionalQuestions[2],
     ConventionalQuestions[3],
 ]
-
-export const page3 = [
+const page3 = [
     RealisticQuestions[4],
     RealisticQuestions[5],
     InvestigativeQuestions[4],
@@ -785,8 +797,7 @@ export const page3 = [
     ConventionalQuestions[4],
     ConventionalQuestions[5],
 ]
-
-export const page4 = [
+const page4 = [
     RealisticQuestions[6],
     RealisticQuestions[7],
     InvestigativeQuestions[6],
@@ -800,8 +811,7 @@ export const page4 = [
     ConventionalQuestions[6],
     ConventionalQuestions[7],
 ]
-
-export const page5 = [
+const page5 = [
     RealisticQuestions[8],
     RealisticQuestions[9],
     InvestigativeQuestions[8],
@@ -816,12 +826,14 @@ export const page5 = [
     ConventionalQuestions[9],
 ]
 
+// survey choices
 const surveyChoices = [{value: 1, text: "Strongly Dislike"},
     {value: 2, text: "Dislike"},
     {value: 3, text: "Neutral"},
     {value: 4, text: "Like"},
     {value: 5, text: "Strongly Like"}]
 
+// function that maps array to text, category and value JSON
 function mapArray(array) {
     return array.map(
         (questions, index) =>
@@ -838,7 +850,8 @@ const surveyConst = {
     name: "Page",
     title: "Please select how you feel about each statement",
     startButtonText: "Get Started",
-    backButtonText: "Back"
+    backButtonText: "Back",
+    completeButtonText: "Submit for Results"
 }
 
 export const json = {
@@ -846,6 +859,8 @@ export const json = {
     showQuestionNumbers: "off",
     firstPageIsStarted: true,
     startSurveyText: surveyConst.startButtonText,
+    pagePrevText: surveyConst.backButtonText,
+    completeText: surveyConst.completeButtonText,
 
     pages: [
         {
@@ -857,13 +872,14 @@ export const json = {
             ]
         },
         {
+            // Page 1 Questions
             elements: [
                 {
                     type: surveyConst.type,
                     title: surveyConst.title,
                     name: surveyConst.name + "1",
                     valueName: surveyConst.name + "1",
-                    isAllRowRequired: true,
+                    // isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page1),
 
@@ -871,55 +887,58 @@ export const json = {
             ]
         },
         {
+            // Page 2 Questions
             elements: [
                 {
                     type: surveyConst.type,
                     title: surveyConst.title,
                     name: surveyConst.name + "2",
                     valueName: surveyConst.name + "2",
-                    isAllRowRequired: true,
+                    // isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page2)
                 }
             ]
         }, {
+            // Page 3 Questions
             elements: [
                 {
                     type: surveyConst.type,
                     title: surveyConst.title,
                     name: surveyConst.name + "3",
                     valueName: surveyConst.name + "3",
-                    isAllRowRequired: true,
+                    // isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page3)
                 }
             ]
         },
         {
+            // Page 4 Questions
             elements: [
                 {
                     type: surveyConst.type,
                     title: surveyConst.title,
                     name: surveyConst.name + "4",
                     valueName: surveyConst.name + "4",
-                    isAllRowRequired: true,
+                    // isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page4)
                 }
             ]
         }, {
+            // Page 5 Questions
             elements: [
                 {
                     type: surveyConst.type,
                     title: surveyConst.title,
                     name: surveyConst.name + "5",
                     valueName: surveyConst.name + "5",
-                    isAllRowRequired: true,
+                    // isAllRowRequired: true,
                     columns: surveyChoices,
                     rows: mapArray(page5)
                 }
             ]
         }
     ]
-
 };
