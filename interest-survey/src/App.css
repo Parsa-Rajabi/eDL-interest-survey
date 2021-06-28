@@ -83,6 +83,10 @@
     background-color: var(--light-blue);
 }
 
+.btn-grey {
+    background-color: grey;
+}
+
 .btn-orange:hover, .btn-orange:focus {
     background-color: var(--dark-orange);
     color: #fff;
@@ -90,6 +94,11 @@
 
 .btn-blue:hover, .btn-blue:focus {
     background-color: var(--dark-blue);
+    color: #fff;
+}
+
+.btn-grey:hover, .btn-grey:focus {
+    background-color: var(--grey);
     color: #fff;
 }
 
