@@ -1,38 +1,144 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    --light-orange: #F58220;
+    --dark-orange: #FE5000;
+    --light-purple: #CE009F;
+    --dark-purple: #6F2277;
+    --light-blue: #10CFC9;
+    --dark-blue: #2c8a83;
+    --grey: #53565A;
+    --white: #F6F6F6;
+}
+
+.survey-background {
+    background: white;
+}
+
+.btn {
+    background-color: var(--light-orange);
+    display: inline-block;
+    margin-top: 3%;
+    margin-right: 5px;
+    height: 50px;
+    min-width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 1.214em;
+    font-family: inherit;
+    outline: none;
+    padding: 0.5em 2.786em 0.6em;
+    text-align: left;
+    cursor: pointer;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.btn-orange {
+    background-color: var(--light-orange);
+}
+
+.btn-blue {
+    background-color: var(--light-blue);
+}
+
+.btn-orange:hover, .btn-orange:focus {
+    background-color: var(--dark-orange);
+    color: #fff;
+}
+
+.btn-blue:hover, .btn-blue:focus {
+    background-color: var(--dark-blue);
+    color: #fff;
+}
+
+.footer {
+    padding-top: 5px;
+}
+
+.progress {
+    height: 0.5em;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightgrey;
+}
+
+.progress-bar {
+    position: center;
+    margin-top: 3%;
+    margin-bottom: 1%;
+    height: 100%;
+    background-color: var(--light-purple)
+}
+
+.progress-text {
+    margin-top: 0.69em;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dark-purple);
+}
+
+.root {
+    background-color: white;
+}
+
+.root th {
+    /*background-color: var(--light-orange);*/
+}
+
+.root table {
+    background-color: var(--white);
+}
+
+.root ::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+    border-radius: 50px;
+}
+
+.root ::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 50px;
+
 }

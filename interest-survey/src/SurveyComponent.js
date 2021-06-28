@@ -35,6 +35,28 @@ function SurveyComponent() {
     // create new survey based on json provided
     const survey = new Model(json);
 
+    survey.onUpdateQuestionCssClasses
+        .add(function (survey, options) {
+            // https://github.com/surveyjs/survey-library/blob/master/src/defaultCss/cssmodern.ts
+            const classes = options.cssClasses
+            const modernCSS = survey.css;
+
+            classes.mainRoot = "survey-background";
+
+            modernCSS.root = "root"
+            modernCSS.footer = "footer"
+            modernCSS.navigation.start = "btn btn-orange"
+            modernCSS.navigation.next = "btn btn-orange"
+            modernCSS.navigation.prev = "btn btn-orange"
+            modernCSS.navigation.complete = "btn btn-blue"
+
+            modernCSS.progress = "progress"
+            modernCSS.progressBar = "progress-bar"
+            modernCSS.progressText = "progress-text"
+
+        });
+
+
     function submit(survey) {
         const results = survey.data;
 
