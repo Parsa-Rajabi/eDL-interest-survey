@@ -141,5 +141,10 @@
 .root ::-webkit-scrollbar-thumb {
     background: lightgrey;
     border-radius: 50px;
+}
 
+.image {
+    position: absolute;
+    top: 0.5%;
+    left: 5%;
 }
