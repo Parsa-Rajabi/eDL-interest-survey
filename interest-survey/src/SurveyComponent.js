@@ -47,7 +47,7 @@ function SurveyComponent() {
             modernCSS.footer = "footer"
             modernCSS.navigation.start = "btn btn-orange"
             modernCSS.navigation.next = "btn btn-orange"
-            modernCSS.navigation.prev = "btn btn-orange"
+            modernCSS.navigation.prev = "btn btn-grey"
             modernCSS.navigation.complete = "btn btn-blue"
 
             modernCSS.progress = "progress"
@@ -91,10 +91,17 @@ function SurveyComponent() {
             }
         }
         setReleaseResults(true);
+
+    }
+
+    function restartSurvey() {
+        survey.clear();
+        setReleaseResults(false);
+        survey.render();
     }
 
     return <div>
-        <Survey model={survey} onComplete={submit}/>
+        {!releaseResults && <Survey model={survey} onComplete={submit} />}
         {releaseResults && <div>
             <p>{questionCategories.Artistic} Score : {artisticScore}</p>
             <p>{questionCategories.Conventional} Score : {conventionalScore}</p>
@@ -102,6 +109,9 @@ function SurveyComponent() {
             <p>{questionCategories.Realistic} Score : {realisticScore}</p>
             <p>{questionCategories.Social} Score : {socialScore}</p>
         </div>}
+
+        {releaseResults && <button className={"btn btn-orange"} onClick={restartSurvey}> Try Again </button>}
+        {releaseResults && <button className={"btn btn-blue"} onClick={window.close}> Exit </button>}
     </div>
 }
 
