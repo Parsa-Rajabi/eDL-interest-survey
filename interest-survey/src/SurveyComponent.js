@@ -12,6 +12,10 @@ import {Survey, StylesManager, Model} from "survey-react";
 import "survey-react/modern.css";
 import "./index.css";
 import {json, questionCategories} from "./SurveyText";
+import BarChart from "./BarChart";
+import {CATEGORY_DEF, CATEGORY_EXAMPLES, EXAMPLE_HEADER} from "./CategoryDefinitions";
+import {animateScroll as scroll} from 'react-scroll'
+
 
 StylesManager.applyTheme("modern");
 
@@ -22,12 +26,14 @@ function SurveyComponent() {
     const [artisticScore, setArtisticScore] = useState();
     const [conventionalScore, setConventionalScore] = useState();
     const [enterprisingScore, setEnterprisingScore] = useState();
+    const [investigativeScore, setInvestigativeScore] = useState();
     const [realisticScore, setRealisticScore] = useState();
     const [socialScore, setSocialScore] = useState();
     // temp variables
     let artisticScoreTemp = 0;
     let conventionalScoreTemp = 0;
     let enterprisingScoreTemp = 0;
+    let investigativeScoreTemp = 0;
     let realisticScoreTemp = 0;
     let socialScoreTemp = 0;
 
@@ -72,6 +78,8 @@ function SurveyComponent() {
                             conventionalScoreTemp += score
                         } else if (category.includes(questionCategories.Enterprising)) {
                             enterprisingScoreTemp += score
+                        } else if (category.includes(questionCategories.Investigative)) {
+                            investigativeScoreTemp += score
                         } else if (category.includes(questionCategories.Realistic)) {
                             realisticScoreTemp += score
                         } else if (category.includes(questionCategories.Social)) {
@@ -83,15 +91,15 @@ function SurveyComponent() {
                 setArtisticScore(artisticScoreTemp);
                 setConventionalScore(conventionalScoreTemp);
                 setEnterprisingScore(enterprisingScoreTemp);
+                setInvestigativeScore(investigativeScoreTemp);
                 setRealisticScore(realisticScoreTemp);
                 setSocialScore(socialScoreTemp);
 
                 // print data for debugging
-                console.log(JSON.stringify(survey.data, null, 3))
+                // console.log(JSON.stringify(survey.data, null, 3))
             }
         }
         setReleaseResults(true);
-
     }
 
     function restartSurvey() {
@@ -100,18 +108,102 @@ function SurveyComponent() {
         survey.render();
     }
 
+    function scrollDown() {
+        scroll.scrollTo(800);
+    }
+
+    function returnArrayList(array) {
+        return array.map(
+            (text) =>
+                <li key={text}>
+                    {text}
+                </li>
+        );
+    }
+
     return <div>
-        {!releaseResults && <Survey model={survey} onComplete={submit} />}
-        {releaseResults && <div>
-            <p>{questionCategories.Artistic} Score : {artisticScore}</p>
-            <p>{questionCategories.Conventional} Score : {conventionalScore}</p>
-            <p>{questionCategories.Enterprising} Score : {enterprisingScore}</p>
-            <p>{questionCategories.Realistic} Score : {realisticScore}</p>
-            <p>{questionCategories.Social} Score : {socialScore}</p>
+        {!releaseResults && <Survey model={survey} onComplete={submit}/>}
+        {releaseResults &&
+        <div>
+
+            <h1 className={"text-2xl font-bold mt-20 mx-auto w-1/2 content-center text-center "}>Your Results Are
+                In!</h1>
+            <div className={"flex justify-center flex-wrap align-middle"}>
+
+                <div className={"w-1/2 rounded-lg shadow-xl mt-5 mr-2 p-7"}>
+                    <BarChart
+                        surveyData={[artisticScore, conventionalScore, enterprisingScore, investigativeScore, realisticScore, socialScore]}/>
+                </div>
+                <div className={"w-5/12 rounded-lg shadow-xl mt-5 ml-2 p-7"}>
+                    <p className={"my-5"}>Here are your interest results: </p>
+                    <div className={"text-lg my-10"}>
+                        <p>{questionCategories.Artistic} Score: {artisticScore}</p>
+                        <p>{questionCategories.Conventional} Score: {conventionalScore}</p>
+                        <p>{questionCategories.Enterprising} Score: {enterprisingScore}</p>
+                        <p>{questionCategories.Investigative} Score: {investigativeScore}</p>
+                        <p>{questionCategories.Realistic} Score: {realisticScore}</p>
+                        <p>{questionCategories.Social} Score: {socialScore}</p>
+                    </div>
+                    <p> Think of these results as pointing out work-related activities that you may like to do.</p>
+
+                    <p className={"my-5"}> Your interests can help you find career options to explore. The more a career
+                        satisfies your
+                        interests, the more likely that it will be satisfying and rewarding.</p>
+
+                    <p>Click the button below to learn more about what these categories and your results mean. </p>
+                    <button className={"btn btn-orange"} onClick={scrollDown}> Learn More</button>
+                </div>
+
+            </div>
         </div>}
 
-        {releaseResults && <button className={"btn btn-orange"} onClick={restartSurvey}> Try Again </button>}
-        {releaseResults && <button className={"btn btn-blue"} onClick={window.close}> Exit </button>}
+        {releaseResults &&
+        <span>
+            <h1 className={"text-2xl font-bold mt-20 mx-auto w-1/2 content-center text-center "}>What the Categories
+                Mean:</h1>
+            <div className={"rounded-lg shadow-xl text-left mx-auto w-1/2 p-14"}>
+                <div className={"mb-8"}>
+                    <p className={"category-title"}>{questionCategories.Artistic} </p>
+                    <p className={"inline-block"}>{CATEGORY_DEF.ARTISTIC} </p>
+                    <p>{EXAMPLE_HEADER}</p>
+                    <p className={"category-example"}> {returnArrayList(CATEGORY_EXAMPLES.ARTISTIC)}</p>
+                </div>
+                <div className={"my-8"}>
+                    <p className={"category-title"}>{questionCategories.Conventional} </p>
+                    <p className={"inline-block"}>{CATEGORY_DEF.CONVENTIONAL} </p>
+                    <p>{EXAMPLE_HEADER}</p>
+                    <p className={"category-example"}> {returnArrayList(CATEGORY_EXAMPLES.CONVENTIONAL)}</p>
+                </div>
+                <div className={"my-8"}>
+                    <p className={"category-title"}>{questionCategories.Enterprising} </p>
+                    <p className={"inline-block"}>{CATEGORY_DEF.ENTERPRISING} </p>
+                    <p>{EXAMPLE_HEADER}</p>
+                    <p className={"category-example"}> {returnArrayList(CATEGORY_EXAMPLES.ARTISTIC)}</p>
+                </div>
+                <div className={"my-8"}>
+                    <p className={"category-title"}>{questionCategories.Investigative} </p>
+                    <p className={"inline-block"}>{CATEGORY_DEF.INVESTIGATIVE} </p>
+                    <p>{EXAMPLE_HEADER}</p>
+                    <p className={"category-example"}> {returnArrayList(CATEGORY_EXAMPLES.INVESTIGATIVE)}</p>
+                </div>
+                <div className={"my-8"}>
+                    <p className={"category-title"}>{questionCategories.Realistic} </p>
+                    <p className={"inline-block"}>{CATEGORY_DEF.REALISTIC} </p>
+                    <p>{EXAMPLE_HEADER}</p>
+                    <p className={"category-example"}> {returnArrayList(CATEGORY_EXAMPLES.REALISTIC)}</p>
+                </div>
+                <div className={"my-8"}>
+                    <p className={"category-title"}>{questionCategories.Social} </p>
+                    <p className={"inline-block"}>{CATEGORY_DEF.SOCIAL} </p>
+                    <p>{EXAMPLE_HEADER}</p>
+                    <p className={"category-example"}> {returnArrayList(CATEGORY_EXAMPLES.SOCIAL)}</p>
+                </div>
+
+                  </div>
+                <button className={"btn btn-orange"} onClick={restartSurvey}> Try Again </button>
+                <button className={"btn btn-blue"} onClick={window.close}> Exit </button>
+        </span>
+        }
     </div>
 }
 
