@@ -7,9 +7,9 @@ function App() {
             <img src={"https://edynamiclearning.com/wp-content/uploads/2020/09/Logo_Vert_Graduate_Web.png"}
                  width={100}
                  alt={"eDynamic Learning Logo"}
-                 class={"image"}
+                 className={"image"}
             />
-            <h1>Interest Survey</h1>
+            <h1 className={"text-2xl font-bold mt-16"}>Interest Survey</h1>
             <SurveyComponent/>
         </div>
     );
