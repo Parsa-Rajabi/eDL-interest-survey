@@ -871,47 +871,47 @@ export const json = {
                         "<b> Welcome to Your Interests Survey! </b>" +
                         "<br/> <br/>" +
                         "This survey can help you figure out what you  like to do and how your interest may relate to work and a future career." +
-                        "<br/> <br/>" +
+                        "<br/> " +
                         "The link will open a browser tab. There are 60 questions, which may seem like a lot of questions though the time will go quickly!" +
-                        "<br/> <br/>" +
+                        "<br/>" +
                         "We are excited that you decided to take this first step! Click the link to get started. " +
 
-                        "<br/> <br/> <br/> <br/> <br/> " +
+                        "<br/> <br/> <br/> <br/>  " +
 
                         "<b> Before You Begin the Survey </b>" +
                         "<br/> <br/>" +
                         "This survey asks you to think about different activities that some jobs require you to perform." +
-                        "<br/> <br/>" +
+                        "<br/>" +
                         "Focus only on what you which activities you like and which ones you dislike." +
-                        "<br/> <br/>" +
+                        "<br/>" +
                         "Don't worry about whether you have the education or training to do the work, and/or how much money you would make doing it. " +
 
-                        "<br/> <br/> <br/> <br/> <br/> " +
+                        "<br/> <br/> <br/> <br/> " +
 
                         "<b> How to Fill in this Survey </b>" +
                         "<br/> <br/>" +
                         "On the pages that follow, read each statement carefully and consider how you would feel about doing that activity." +
-                        "<br/> <br/>" +
+                        "<br/> " +
                         "You will select ONE that represents how you feel for each statement: " +
-                        "<br/> <br/>" +
+                        "<br/> " +
                         "Strongly Like, " +
                         "Like, " +
                         "Neutral, " +
                         "Dislike, " +
                         "Strongly Dislike" +
-                        "<br/> <br/> <br/> <br/> <br/> " +
+                        "<br/> <br/> <br/> <br/> " +
 
 
                         "<b> Rules of Engagement Before Starting Your Survey </b>" +
                         "<br/> <br/>" +
                         "There are 5 pages with 60 work-related activity statements. Answer all activity statements in the order that they appear." +
-                        "<br/> <br/>" +
+                        "<br/> " +
                         "The progress bar (on the bottom) will show you how far you've gone and how much more there is to go." +
-                        "<br/> <br/>" +
+                        "<br/> " +
                         "Click the back button to return to an earlier page. " +
-                        "<br/> <br/>" +
+                        "<br/> " +
                         "Remember that there are no right or wrong answers.  " +
-                        "<br/> <br/> <br/> <br/>" +
+                        "<br/> <br/> " +
                         "Have fun discovering more about yourself!"
                 }
             ]
@@ -985,5 +985,5 @@ export const json = {
                 }
             ]
         }
-    ]
+    ],
 };
