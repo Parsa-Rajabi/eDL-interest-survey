@@ -142,10 +142,6 @@
     background-color: white;
 }
 
-.root th {
-    /*background-color: var(--light-orange);*/
-}
-
 .root table {
     background-color: var(--white);
 }
@@ -165,29 +161,6 @@
     position: absolute;
     top: 5%;
     left: 5%;
-}
-
-
-.results-container {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-
-}
-
-.chart {
-    flex: 50 0 30%;
-    box-shadow: 5px 10px var(--grey);
-    border: 1px solid;
-    padding: 10px;
-}
-
-.result-text {
-    flex: 50 0 30%;
-    margin-right: auto;
-    box-shadow: 5px 10px var(--grey);
-    border: 1px solid;
-    padding: 10px;
 }
 
 .category-title {
