@@ -29,6 +29,9 @@ function SurveyComponent() {
     const [investigativeScore, setInvestigativeScore] = useState();
     const [realisticScore, setRealisticScore] = useState();
     const [socialScore, setSocialScore] = useState();
+
+    const [printing, setPrinting] = useState(false);
+
     // temp variables
     let artisticScoreTemp = 0;
     let conventionalScoreTemp = 0;
@@ -36,7 +39,6 @@ function SurveyComponent() {
     let investigativeScoreTemp = 0;
     let realisticScoreTemp = 0;
     let socialScoreTemp = 0;
-
 
     // create new survey based on json provided
     const survey = new Model(json);
@@ -61,6 +63,15 @@ function SurveyComponent() {
             modernCSS.progressText = "progress-text"
 
         });
+
+
+    function printPage() {
+        setPrinting(true);
+        setTimeout(function () {
+            window.print()
+            setPrinting(false);
+        }, 750);
+    }
 
 
     function submit(survey) {
@@ -128,13 +139,13 @@ function SurveyComponent() {
 
             <h1 className={"text-2xl font-bold mt-20 mx-auto w-1/2 content-center text-center "}>Your Results Are
                 In!</h1>
-            <div className={"flex justify-center flex-wrap align-middle"}>
+            <div className={`${!printing && 'flex flex-wrap'} justify-center align-middle`}>
 
-                <div className={"w-1/2 rounded-lg shadow-xl mt-5 mr-2 p-7"}>
+                <div className={`${!printing && 'rounded-lg shadow-xl'} w-1/2 mt-5 mr-2 p-7`}>
                     <BarChart
                         surveyData={[artisticScore, conventionalScore, enterprisingScore, investigativeScore, realisticScore, socialScore]}/>
                 </div>
-                <div className={"w-5/12 rounded-lg shadow-xl mt-5 ml-2 p-7"}>
+                <div className={`${!printing ? 'rounded-lg shadow-xl w-5/12' : 'w-full'} mt-5 mr-2 p-7`}>
                     <p className={"my-5"}>Here are your interest results: </p>
                     <div className={"text-lg my-10"}>
                         <p>{questionCategories.Artistic} Score: {artisticScore}</p>
@@ -151,7 +162,8 @@ function SurveyComponent() {
                         interests, the more likely that it will be satisfying and rewarding.</p>
 
                     <p>Click the button below to learn more about what these categories and your results mean. </p>
-                    <button className={"btn btn-orange"} onClick={scrollDown}> Learn More</button>
+                    {!printing && <button className={"btn btn-orange"} onClick={scrollDown}> Learn More</button>}
+                    {!printing && <button className={"btn btn-grey"} onClick={printPage}> Print Results</button>}
                 </div>
 
             </div>
@@ -161,7 +173,7 @@ function SurveyComponent() {
         <span>
             <h1 className={"text-2xl font-bold mt-20 mx-auto w-1/2 content-center text-center "}>What the Categories
                 Mean:</h1>
-            <div className={"rounded-lg shadow-xl text-left mx-auto w-1/2 p-14"}>
+            <div className={`${!printing && 'rounded-lg shadow-xl'} text-left mx-auto w-2/3 p-14`}>
                 <div className={"mb-8"}>
                     <p className={"category-title"}>{questionCategories.Artistic} </p>
                     <p className={"inline-block"}>{CATEGORY_DEF.ARTISTIC} </p>
@@ -200,8 +212,8 @@ function SurveyComponent() {
                 </div>
 
                   </div>
-                <button className={"btn btn-orange"} onClick={restartSurvey}> Try Again </button>
-                <button className={"btn btn-blue"} onClick={window.close}> Exit </button>
+            {!printing && <button className={"btn btn-orange"} onClick={restartSurvey}> Try Again </button>}
+            {!printing && <button className={"btn btn-blue"} onClick={window.close}> Exit </button>}
         </span>
         }
     </div>
