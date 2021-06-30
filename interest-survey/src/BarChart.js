@@ -50,6 +50,10 @@ function BarChart(props) {
     };
 
     const options = {
+        animation: {
+            duration: 750
+        },
+        // maintainAspectRatio: false,
         indexAxis: 'y',
         elements: {
             bar: {
