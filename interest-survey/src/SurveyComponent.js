@@ -155,15 +155,12 @@ function SurveyComponent() {
                         <p>{questionCategories.Realistic} Score: {realisticScore}</p>
                         <p>{questionCategories.Social} Score: {socialScore}</p>
                     </div>
-                    <p> Think of these results as pointing out work-related activities that you may like to do.</p>
 
-                    <p className={"my-5"}> Your interests can help you find career options to explore. The more a career
-                        satisfies your
-                        interests, the more likely that it will be satisfying and rewarding.</p>
-
+                    {!printing && <span>
                     <p>Click the button below to learn more about what these categories and your results mean. </p>
-                    {!printing && <button className={"btn btn-orange"} onClick={scrollDown}> Learn More</button>}
-                    {!printing && <button className={"btn btn-grey"} onClick={printPage}> Print Results</button>}
+                     <button className={"btn btn-orange"} onClick={scrollDown}> Learn More</button>
+                     <button className={"btn btn-grey"} onClick={printPage}> Print Results</button>
+                    </span>}
                 </div>
 
             </div>
@@ -171,8 +168,15 @@ function SurveyComponent() {
 
         {releaseResults &&
         <span>
-            <h1 className={"text-2xl font-bold mt-20 mx-auto w-1/2 content-center text-center "}>What the Categories
-                Mean:</h1>
+            <div className={`${!printing && 'rounded-lg shadow-lg'} text-md mx-auto w-2/3 m-6 py-6`}>
+                <p> Think of these results as pointing out work-related activities that you may like to do.</p>
+
+                    <p className={"my-5"}> Your interests can help you find career options to explore. The more a career
+                        satisfies your
+                        interests, the more likely that it will be satisfying and rewarding.</p>
+            </div>
+            <h1 className={"text-2xl font-bold mt-10 mx-auto w-1/2 content-center text-center "}>What the Categories
+                Mean</h1>
             <div className={`${!printing && 'rounded-lg shadow-xl'} text-left mx-auto w-2/3 p-14`}>
                 <div className={"mb-8"}>
                     <p className={"category-title"}>{questionCategories.Artistic} </p>
